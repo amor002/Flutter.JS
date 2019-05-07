@@ -1,4 +1,4 @@
-#Flutter JS (amr)
+# Flutter JS (amr)
 this python file allows you to build [flutter](https://flutter.io/) apps
 using javascript and react but without the full access for both javascript and react
 - means that javascript and react syntax will be stricted to a limit
@@ -7,7 +7,7 @@ using javascript and react but without the full access for both javascript and r
 #how it works:
 the python script `amr.py` converts the javascript code into dart code, as much as possible, you can also improve the parser by your self if you want.
 
-#how to start ?
+# how to start ?
 1. first of all you must have flutter installed
 2. create a flutter project using the command `flutter create <directory name>`
 3. create a directory in the project and name it `javascript`
@@ -15,7 +15,7 @@ the python script `amr.py` converts the javascript code into dart code, as much 
 
 now you are ready to start using **Flutter JS**
 
-##next:
+## next:
 1. inside `javascript` directory create file called `main.js` (required)
 2. write the starting code in javascript
 ```javascript
@@ -64,7 +64,7 @@ class Home extends StatelessWidget {
 3. open your emulator
 4. run and check `python amr.py --run` (`--run` flag to build and run)
 
-##how to use ?
+## how to use ?
 * if need to import another js file just go ahead and import it `import 'file.js'`
 * you may need to use dart libraries you can import it easly, example `import 'dart:math'`
 * you can use the react tags any where but with rules
@@ -88,7 +88,7 @@ this property allows you to insert values to some components that don't have opt
                 ...etc
           ```
 
-#####available javascript differences
+##### available javascript differences
 * **the supported javascript syntax which is not in dart that you are able to use**
 * `setTimeout` built in function
 * `function` keyword
