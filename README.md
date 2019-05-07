@@ -142,7 +142,7 @@ and you can add you own edition if needed
     * you can't use different types of values in the same object
         ```javascript
         var x = {'name': 'amr elmowaled', 'age': 17}; //error
-        var x = {'name': 'amr elmowaled', 'numbers': {'age': 17}}; //works
+        var x = {'string': {'name': 'amr elmowaled'}, 'integers': {'age': 17}}; //works
         ```
     * you can't assign object value with an undefiened key
         ```javascript
