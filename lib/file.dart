@@ -1,0 +1,4 @@
+
+ printHi() {
+	print('hello');
+}
