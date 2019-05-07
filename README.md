@@ -69,13 +69,13 @@ class Home extends StatelessWidget {
 * you may need to use dart libraries you can import it easly, example `import 'dart:math'`
 * you can use the react tags any where but with rules
    * you can't use self closed tags without having a parent, example
-          ```javascript
+          
+	  ```javascript
 		var txt = "hello!";
 		let x = <Text value={txt}/>; // error
 		// closed tag should always be inside another component
 		// you can use this instead
-		let x = <Text value={txt}></Text>; //works !
-                
+		let x = <Text value={txt}></Text>; //works !   
           ```
 
 ##### `value` property in components
@@ -89,7 +89,7 @@ this property allows you to insert values to some components that don't have opt
           ```
 
 #####available javascript differences
-the supported javascript syntax which is not in dart that you are able to use
+* **the supported javascript syntax which is not in dart that you are able to use**
 * `setTimeout` built in function
 * `function` keyword
 * `let` keyword
