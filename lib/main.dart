@@ -21,18 +21,22 @@ class MyApp extends StatelessWidget {
      }
 }
 
+
+
 class Home extends StatelessWidget {
     
     build(context) {
-        
+
+        var style = TextStyle(color:Colors.blue);
+
         return 
         Scaffold(
 	appBar:AppBar(title:Text('Welcome!', ),
 	leading:IconButton(icon: Icon(Icons.home, ), onPressed:(){}),
 	actions:[IconButton(icon: Icon(Icons.settings, ), onPressed:(){}),IconButton(icon: Icon(Icons.date_range, ), onPressed:(){})] ),body:Container(child: 
 	Center(child: 
-	RaisedButton(child: 
-	Text('click me!', ), onPressed:printHi), ), ) );
+	FlatButton(child: 
+	Text('click me!', style:style), onPressed:printHi), ), ) );
 }
 
 }

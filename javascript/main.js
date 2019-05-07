@@ -21,10 +21,14 @@ class MyApp extends StatelessWidget {
      }
 }
 
+
+
 class Home extends StatelessWidget {
     
     build(context) {
-        
+
+        let style = <TextStyle color={Colors.blue}></TextStyle>;
+
         return 
         <Scaffold>
             <appBar>
@@ -49,9 +53,9 @@ class Home extends StatelessWidget {
             <body>
                 <Container>
                     <Center>
-                            <RaisedButton onPressed={printHi}>
-                                <Text>click me!</Text>
-                            </RaisedButton>
+                            <FlatButton onPressed={printHi}>
+                                <Text style={style}>click me!</Text>
+                            </FlatButton>
                     </Center>
                 </Container>
             </body>

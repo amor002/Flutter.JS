@@ -3,6 +3,7 @@ from sys import argv
 from xml.etree.ElementTree import fromstring
 
 
+#add your custom if wanted
 SYNTAX_SIMPLE = {
     'function': '',
     'let': 'var',
@@ -110,22 +111,26 @@ def component2widget(components, parent=None, first_parent=False):
                                                                     first_parent=False) for component in components]),
                                          ',\n\t'.join([':'.join(item) for item in parent.items()]))
 
-    if parent.parent.tag == 'Scaffold':
-        if parent.tag == 'appBar':
-            return 'AppBar(%s %s)'%(
-                ',\n\t'.join([':'.join([component.tag, component2widget(
-                    component.getchildren()[0].getchildren(),
-                    parent=component.getchildren()[0],first_parent=False)]
-                     ) if component.tag != 'actions' else 'actions:[%s]'%(
-                     ','.join([component2widget(comp.getchildren(),
-                        parent=comp,first_parent=False
-                        ) for comp in component.getchildren()]) 
 
-                     ) for component in components])+\
-                     (",\n\t" if parent.items() else ""), ',\n\t'.join([':'.join(item) for item in parent.items()]))
+    try:
+        if parent.parent.tag == 'Scaffold':
+            if parent.tag == 'appBar':
+                return 'AppBar(%s %s)'%(
+                    ',\n\t'.join([':'.join([component.tag, component2widget(
+                        component.getchildren()[0].getchildren(),
+                        parent=component.getchildren()[0],first_parent=False)]
+                         ) if component.tag != 'actions' else 'actions:[%s]'%(
+                         ','.join([component2widget(comp.getchildren(),
+                            parent=comp,first_parent=False
+                            ) for comp in component.getchildren()]) 
 
-        return '%s'%(component2widget(components[0].getchildren(), parent=components[0], first_parent=False))
-    
+                         ) for component in components])+\
+                         (",\n\t" if parent.items() else ""), ',\n\t'.join([':'.join(item) for item in parent.items()]))
+
+            return '%s'%(component2widget(components[0].getchildren(), parent=components[0], first_parent=False))
+    except:
+        pass
+
     if len(components) == 0:
         return '%s(%s)'%(parent.tag, ',\n\t'.join([':'.join(item) for item in parent.items()]))
     return '%s(%s %s)'%(parent.tag,
@@ -155,14 +160,20 @@ def convertReact(code):
 
     forms = re.findall(r'(<(\w+)(.*?)>)(.*?)(</\2>)', code, re.DOTALL)
     for form in forms:
+
         form = list(form)
+        form.pop(2)
         form.pop(1)
-    
-        component = fromstring(''.join(form))
+        
+        try:
+            component = fromstring(''.join(form))
+        except:
+            print 'error while compiling react'
+            print '*'*50
+            print ''.join(form)
+            print '*'*50
         widget =component2widget(component.getchildren(), parent=component, first_parent=True)
         code = code.replace(''.join(form), widget)
-
-    components = re.findall(r'(<(\w+)(.*?)>)(.*?)(</\2>)', code, re.DOTALL)
 
     return code
 
