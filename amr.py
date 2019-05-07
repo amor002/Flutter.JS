@@ -19,8 +19,8 @@ SYNTAX_SIMPLE = {
 }
 
 
-# add here
-NO_CHILDS_WIDGETS = [
+# add more if you want
+NO_CHILDS_WIDGETS = [ # fields that has no child arg
     'Text',
     'TextField',
     'TextFormField',
@@ -37,6 +37,7 @@ NO_CHILDS_WIDGETS = [
 ]
 
 # syntax_complex
+typeOf = lambda code: re.sub(r'typeof(\s+)+((\w+)|(("|\')\w+("|\')))', r'\2.runtimeType', code)
 async = lambda code: re.sub(r'async (\s+)*(([A-Za-z0-9_]+)*)(\s+)*\((\s+)*((.*)*)(\s+)*\)', r'\2(\6) async',code)
 Super = lambda code: re.sub(r'{(\s+)*(\n)*(\s+)*super\((.*)\)', r':super(\4) {\n', code)
 constructor = lambda code: re.sub(r'class(\s+)(\w+)(.*?){(.*?)constructor', r'class\1\2\3{\4\2', code, flags=re.DOTALL)
@@ -74,7 +75,17 @@ def convert2dart(js_code):
     for syntax in SYNTAX_SIMPLE:
         js_code = js_code.replace(syntax, SYNTAX_SIMPLE[syntax])
 
-    return convertReact(Import(setTimeout(add2string(constructor(Super(args(default_args(async(js_code)))))))))
+    return convertReact(
+        Import(
+            setTimeout(
+                add2string(
+                    constructor(
+                        Super(
+                            args(
+                                default_args(
+                                    typeOf(
+                                        async(
+                                            js_code))))))))))
 
 def component2widget(components, parent=None, first_parent=False):
 

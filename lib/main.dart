@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 
  main() {
+    var x = "hello";
+    print(x.runtimeType);
     runApp(new MyApp());
 }
 

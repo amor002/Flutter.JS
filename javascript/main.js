@@ -3,6 +3,8 @@ import 'package:flutter/material.js';
 
 
 function main() {
+    let x = "hello";
+    console.log(typeof x);
     runApp(new MyApp());
 }
 
