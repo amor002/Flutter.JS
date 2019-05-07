@@ -77,11 +77,35 @@ class Home extends StatelessWidget {
 		// you can use this instead
 		let x = <Text value={txt}></Text>; //works !   
           ```
+##### functions as properties
+* to pass a function as a property in react
+	```javascript
+	<RaisedButton onPressed={function() {
+	// this is a mistake !
+	// this will make the parser freezes while converting js to dart
+	}}>
+		...
+	</RaisedButton>
+	
+	```
+	* you can do it in two ways
+		1. writing the function in one line
+		2. declaring a function before using react, and using it as a property
+			```javascript
+			function doSomeThing() {
+			 ...
+			}
+			
+			<RaisedButton onPressed={doSomeThing}>
+				...
+			</RaisedButton>
+			
+			```
 
 ##### `value` property in components
 this property allows you to insert values to some components that don't have optional argument in flutter
 * example
-		```dart
+		```java
 		//dart code
 		Text text = new Text(<value>);
 		Image.network(<value>);
