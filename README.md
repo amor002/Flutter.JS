@@ -106,11 +106,11 @@ class Home extends StatelessWidget {
 this property allows you to insert values to some components that don't have optional argument in flutter
 * example
 		```java
-		//dart code
-		Text text = new Text(<value>);
-		Image.network(<value>);
-                ...etc
-          ```
+			//dart code
+			Text text = new Text(<value>);
+			Image.network(<value>);
+			...etc
+          	```
 
 ##### available javascript differences
 * **the supported javascript syntax which is not in dart that you are able to use**
