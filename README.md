@@ -139,15 +139,10 @@ and you can add you own edition if needed
             console.log(x.name); // error
             console.log(x['name']) // works
         ```
-    * you can't use different types of values in the same object
-        ```javascript
-        var x = {'name': 'amr elmowaled', 'age': 17}; //error
-        var x = {'string': {'name': 'amr elmowaled'}, 'integers': {'age': 17}}; //works
-        ```
     * you can't assign object value with an undefiened key
         ```javascript
         var x = {name: 'amr elmowaled'}; // error
-        var x = {'name': 'amr elmowaled'} // work, string key is not neccessary you can use any other types
+        var x = {'name': 'amr elmowaled'} // works!
         ```
     * you can't add a property using `.`
         ```javascript
