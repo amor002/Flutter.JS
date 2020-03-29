@@ -1,3 +1,8 @@
+# edit:
+## instead of trying to convert jsx to dart/flutter code i decided to rewrite about half the project to make it compile a code same as jsx into dart but this code uses dart only (not js), this syntax is called dxml and you can read more about it at my repo
+## the dxml compiler is more flexible than this one and fixes all the problems that i mentioned here and even provides more features
+## repo link: https://github.com/amor002/dxml.git
+
 # Flutter JS (amr)
 this python file allows you to build [flutter](https://flutter.io/) apps
 using javascript and react but without the full access for both javascript and react
